@@ -100,3 +100,4 @@ tzdata==2023.3
 urllib3==2.0.7
 w3lib==2.1.2
 zope.interface==6.1
+scrapeops_scrapy_proxy_sdk==1.0
