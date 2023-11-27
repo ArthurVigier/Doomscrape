@@ -67,6 +67,8 @@ DOWNLOADER_MIDDLEWARES = {
     #"doomsdayindex.middlewares.DoomsdayindexDownloaderMiddleware": 543,
     'doomsdayindex.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 400,
     'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk': 725,
+    'scrapeops_scrapy.middleware.retry.RetryMiddleware': 550,
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
     }
 
 # Enable or disable extensions
@@ -74,7 +76,9 @@ DOWNLOADER_MIDDLEWARES = {
 #EXTENSIONS = {
 #    "scrapy.extensions.telnet.TelnetConsole": None,
 #}
-
+EXTENSIONS = {
+    'scrapeops_scrapy.extension.ScrapeOpsMonitor': 500, 
+}
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
