@@ -80,7 +80,7 @@ DOWNLOADER_MIDDLEWARES = {
 ITEM_PIPELINES = {
 #    "doomsdayindex.pipelines.DoomsdayindexPipeline": 300,
     #"doomsdayindex.pipelines.DuplicatesPipeline": 200,
-    "doomsdayindex.pipelines.DuplicatesPipeline": 11,
+    #"doomsdayindex.pipelines.DuplicatesPipeline": 11,
     }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
