@@ -65,8 +65,8 @@ ROBOTSTXT_OBEY = False
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     #"doomsdayindex.middlewares.DoomsdayindexDownloaderMiddleware": 543,
-    'doomsdayindex.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 400,
-    'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk': 725,
+    #'doomsdayindex.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 400,
+    #'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk': 725,
     'scrapeops_scrapy.middleware.retry.RetryMiddleware': 550,
     'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
     }
