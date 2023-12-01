@@ -17,7 +17,7 @@ FEEDS = {
 }
 
 ITEM_PIPELINES = {
-    'doomsdayindex.pipelines.DuplicatesPipeline': 11,
+   #'doomsdayindex.pipelines.DuplicatesPipeline': 11,
     }
 
 SCRAPEOPS_API_KEY = '0d5a7e42-3d3d-4c04-a66f-25792694a20f'
