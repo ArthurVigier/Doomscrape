@@ -2,15 +2,13 @@ import os
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import pandas as pd
 
-RUNPOD_ID='ux0qwnl80w0dr6' 
-
 # Load the dataset
 df = pd.read_csv('/Users/robertbadinter/DoomsdayIndex/ai/filtered_news_no_zero_importance.csv', nrows=10000)
-
+print(f"Loaded {len(df)} rows from the CSV file.")
 # Load the tokenizer and model
 tokenizer = AutoTokenizer.from_pretrained("cerebras/btlm-3b-8k-base")
 model = AutoModelForCausalLM.from_pretrained("cerebras/btlm-3b-8k-base", trust_remote_code=True, torch_dtype="auto")
-
+print("Tokenizer and model loaded.")
 # Set the prompt for generating text
 prompt = """
 Model: I am working on a project to assess the impact of news headlines. I have a scale from -1 to 2, where -1 represents a catastrophic event threatening humanity, 0 is neutral, and 2 signifies a worldwide positive event of great significance. Below are keywords associated with each score:
@@ -71,6 +69,7 @@ df['Generated_Text'] = ''
 
 # Process the headlines in batches
 for i in range(0, len(df), batch_size):
+    print(f"Processing batch {i // batch_size + 1}...")
     batch = df[i:i+batch_size]
     
     # Generate text for each headline in the batch
@@ -82,6 +81,7 @@ for i in range(0, len(df), batch_size):
         
         # Add the generated text to the DataFrame
         df.at[index, 'Generated_Text'] = generated_text[0]
+        print(f"Generated text for row {index}.")
 
     # Write the batch to the CSV file
     batch.to_csv('/Users/robertbadinter/DoomsdayIndex/ai/refined_data.csv', mode='a', header=False, index=False)
